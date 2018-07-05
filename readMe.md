@@ -56,7 +56,8 @@ $(document).ready(function(){
     var show = true;
 	var countbox = "#counts";
 	$(window).on("scroll load resize", function(){
-		if(!show) return false;                   // Отменяем показ анимации, если она уже была выполнена
+		if(!show) return false;                   // Отменяем показ анимации, если она уже была 
+		                                          // выполнена
 		var w_top = $(window).scrollTop();        // Количество пикселей на которое была прокручена 
 		                                          // страница
 		var e_top = $(countbox).offset().top;     // Расстояние от блока со счетчиками до верха всего 
@@ -101,3 +102,26 @@ $(document).ready(function(){
 </section>
 ```
 Теперь анимация будет запущена только в том случае, если пользователь прокрутил страницу до блока #counts, данный блок в моем случае является неким общим контейнером, в котором находятся три счетчика. Разумеется этих счетчиков может быть сколько угодно.
+
+### HTML атрибуты
+
+| Атрибуты  | Описание               |
+|:----------|:-----------------------|
+| data-from | Start from this number |
+| data-to   | Count to this number   |
+| data-dp   | Decimal places         |
+
+### JavaScript options
+
+| Имя               | По умолчанию        | Описание                                                                |
+|:------------------|:--------------------|:------------------------------------------------------------------------|
+| from              | 0                   | Start from this number                                                  |
+| to                | null                | Count to this number. When null, use contents of element.               |
+| decimalPlaces     | null                | How many decimal places. When null, determine from contents of element. |
+| decimalPoint      | '.'                 |                                                                         |
+| thousandSeparator | ','                 |                                                                         |
+| duration          | 1000                | Total length of animation (ms)                                          |
+| leeway            | 50                  | Amount to which duration may randomly vary (percent)                    |
+| easing            | 'spincrementEasing' | Function ...                                                            |
+| fade              | true                | Use fade effect                                                         |
+| complete          | null                | Callback function called when animation is done                         |
